@@ -4,35 +4,158 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Logros</title>
 
-<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+margin:0;
+font-family:Segoe UI,sans-serif;
+background:linear-gradient(135deg,#aa88ec,#c2b2ff);
+text-align:center;
+}
+
+h1{
+color:white;
+margin-top:40px;
+}
+
+.logrosContainer{
+display:grid;
+grid-template-columns:repeat(3,200px);
+gap:30px;
+justify-content:center;
+margin-top:40px;
+}
+
+.logro{
+background:white;
+border-radius:15px;
+padding:15px;
+cursor:pointer;
+transition:transform .2s;
+}
+
+.logro:hover{
+transform:scale(1.05);
+}
+
+.logro img{
+width:100%;
+border-radius:10px;
+}
+
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.6);
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+.modalContenido{
+background:white;
+padding:30px;
+border-radius:15px;
+max-width:400px;
+text-align:center;
+}
+
+button{
+margin-top:20px;
+padding:10px 20px;
+border:none;
+border-radius:10px;
+background:#aa88ec;
+color:white;
+cursor:pointer;
+}
+
+</style>
 
 </head>
 
 <body>
 
-<div class="topbar">
+<h1>Logros</h1>
 
-<button onclick="location.href='app.html'">Inicio</button>
-<button onclick="location.href='cartas.html'">Cartas</button>
-<button onclick="location.href='logros.html'">Logros</button>
-<button onclick="location.href='vales.html'">Vales</button>
-<button onclick="location.href='regalo.html'">Regalo</button>
-<button onclick="location.href='salir.html'">Salir</button>
+<div class="logrosContainer" id="logrosContainer"></div>
+
+<div class="modal" id="modalLogro">
+
+<div class="modalContenido">
+
+<p id="textoLogro"></p>
+
+<button onclick="cerrarLogro()">Cerrar</button>
+
+</div>
 
 </div>
 
-<div class="container logros">
+<script>
 
-<h3>Logros</h3>
+const logros = [
 
-<div class="logros-grid" id="logrosGrid"></div>
+{img:"images/1.png",texto:"Felicidades sobreviviste más de un año"},
 
-</div>
+{img:"images/5.png",texto:"Has pasado los 5 años con éxito tú puedes con más"},
+
+{img:"images/10.png",texto:"Dios ya son 10, tu primera década, eso campeona"},
+
+{img:"images/15.png",texto:"15 edad difícil pero tú puedes con eso y más"},
+
+{img:"images/20.png",texto:"Órale ya son 20, tu segunda década con vida, TQN"},
+
+{img:"images/Artista.png",texto:"Por ser la mejor artista del maldito mundo"},
+
+{img:"images/Fuerte.png",texto:"Por ser una de las personas más fuertes que conozco"},
+
+{img:"images/Guapa.png",texto:"Por ser la más guapa de todo el mundo"},
+
+{img:"images/Inteligente.png",texto:"Por ser la persona más inteligente que Einstein"}
+
+];
+
+const container = document.getElementById("logrosContainer");
+
+logros.forEach((logro,index)=>{
+
+const div = document.createElement("div");
+
+div.className="logro";
+
+div.innerHTML=`
+<img src="${logro.img}">
+`;
+
+div.onclick=()=>mostrarLogro(index);
+
+container.appendChild(div);
+
+});
+
+function mostrarLogro(i){
+
+document.getElementById("textoLogro").innerText = logros[i].texto;
+
+document.getElementById("modalLogro").style.display="flex";
+
+}
+
+function cerrarLogro(){
+
+document.getElementById("modalLogro").style.display="none";
+
+}
+
+</script>
 
 </body>
-
 </html>

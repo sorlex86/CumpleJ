@@ -1,41 +1,161 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Cartas</title>
 
-<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Segoe UI,sans-serif;
+    background:linear-gradient(135deg,#aa88ec,#c2b2ff);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+}
+
+h1{
+    color:white;
+}
+
+.cartas{
+    display:grid;
+    grid-template-columns:repeat(3,150px);
+    gap:20px;
+    margin-top:30px;
+}
+
+.carta{
+    width:150px;
+    height:200px;
+    background:white;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-weight:bold;
+    transition:transform .2s;
+}
+
+.carta:hover{
+    transform:scale(1.05);
+}
+
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    align-items:center;
+    justify-content:center;
+}
+
+.modalContenido{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    max-width:500px;
+    text-align:center;
+}
+
+button{
+    margin-top:20px;
+    padding:10px 20px;
+    border:none;
+    border-radius:10px;
+    background:#aa88ec;
+    color:white;
+    cursor:pointer;
+}
+
+</style>
 
 </head>
 
 <body>
 
-<div class="topbar">
+<h1>Cartas</h1>
 
-<button onclick="location.href='app.html'">Inicio</button>
-<button onclick="location.href='cartas.html'">Cartas</button>
-<button onclick="location.href='logros.html'">Logros</button>
-<button onclick="location.href='vales.html'">Vales</button>
-<button onclick="location.href='regalo.html'">Regalo</button>
-<button onclick="location.href='salir.html'">Salir</button>
+<div class="cartas">
+
+<div class="carta" onclick="abrirCarta(1)">
+Triste
+</div>
+
+<div class="carta" onclick="abrirCarta(2)">
+Enojada
+</div>
+
+<div class="carta" onclick="abrirCarta(3)">
+Estresada
+</div>
+
+<div class="carta" onclick="abrirCarta(4)">
+Feliz
+</div>
+
+<div class="carta" onclick="abrirCarta(5)">
+Gomitas
+</div>
 
 </div>
 
-<div class="container">
+<div class="modal" id="modalCarta">
 
-<h3>Cartas</h3>
+<div class="modalContenido">
 
-<div class="envelope" id="sobre" onclick="abrirSobre()">
-
-<div class="tapa"></div>
-
-<div class="carta">
 <p id="textoCarta"></p>
+
+<button onclick="cerrarCarta()">Cerrar</button>
+
 </div>
+
+</div>
+
+<script>
+
+function abrirCarta(numero){
+
+const textos = {
+
+1:"Si hoy te sientes un poco rota, recuerda que no estás sola. Siempre puedes venir conmigo.",
+
+2:"Tu enojo también es válido, aquí tienes un lugar seguro para sacarlo.",
+
+3:"Si todo se siente demasiado, tómate un momento. No tienes que poder con todo hoy.",
+
+4:"Ojalá este momento feliz dure mucho… y si no, que vuelvan muchos más.",
+
+5:"Cuando quieras solo échame una llamada y te las consigo antes de las 6 de la tarde.",
+
+};
+
+document.getElementById("textoCarta").innerText = textos[numero];
+
+document.getElementById("modalCarta").style.display = "flex";
+
+}
+
+function cerrarCarta(){
+
+document.getElementById("modalCarta").style.display = "none";
+
+}
+
+</script>
+
+</body>
+</html>
 
 </div>
 

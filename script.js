@@ -5,7 +5,7 @@ function verificarRespuesta(){
 let r=document.getElementById("respuesta").value
 
 if(r==3){
-location.href="inicio.html"
+location.href="index.html"
 }else{
 document.getElementById("error").innerText="Respuesta incorrecta"
 }
@@ -29,7 +29,7 @@ intentos--
 document.getElementById("error").innerText="Incorrecto. Intentos restantes: "+intentos
 
 if(intentos<=0){
-location.href="inicio.html"
+location.href="index.html"
 }
 
 }

@@ -121,6 +121,13 @@ elemento.innerHTML = "✔ Vale usado<br>" + vale;
 
 alert("Vale utilizado 🎟️");
 
+  let numero = "525610910911"; // 52 es el código de México
+let mensaje = "Quiero usar el vale: " + vale;
+
+let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+
+window.open(url, "_blank");
+
 }
 
 }

@@ -8,7 +8,59 @@
 
 <title>Vales</title>
 
-<link rel="stylesheet" href="estilos.css">
+<style>
+
+body{
+margin:0;
+font-family:Segoe UI,sans-serif;
+background:linear-gradient(135deg,#aa88ec,#c2b2ff);
+text-align:center;
+}
+
+.topbar{
+background:white;
+padding:10px;
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.topbar button{
+padding:8px 15px;
+border:none;
+border-radius:10px;
+background:#aa88ec;
+color:white;
+cursor:pointer;
+}
+
+.container{
+margin-top:40px;
+}
+
+.ticket{
+background:white;
+width:250px;
+margin:15px auto;
+padding:20px;
+border-radius:15px;
+cursor:pointer;
+font-size:18px;
+transition:transform .2s, background .3s;
+}
+
+.ticket:hover{
+transform:scale(1.05);
+}
+
+.usado{
+background:#ccc;
+cursor:not-allowed;
+text-decoration:line-through;
+}
+
+</style>
 
 </head>
 
@@ -29,24 +81,51 @@
 
 <h3>Vales</h3>
 
-<div class="ticket" onclick="usarVale('Ir al cine')">
+<div class="ticket" onclick="usarVale(this,'Ir al cine')">
 🎬 Ir al cine
 </div>
-<div class="ticket" onclick="usarVale('Ir a comer')">
- 🍽 Ir a comer
+
+<div class="ticket" onclick="usarVale(this,'Ir a comer')">
+🍽 Ir a comer
 </div>
-<div class="ticket" onclick="usarVale('Darte un abrazo')">
- Darte un abrazo
+
+<div class="ticket" onclick="usarVale(this,'Darte un abrazo')">
+🤗 Darte un abrazo
 </div>
-<div class="ticket" onclick="usarVale('Chisme todo el día')">
- Chisme todo el día
+
+<div class="ticket" onclick="usarVale(this,'Chisme todo el día')">
+🗣 Chisme todo el día
 </div>
-<div class="ticket" onclick="usarVale('Ir por un helado')">
- Ir por un helado
+
+<div class="ticket" onclick="usarVale(this,'Ir por un helado')">
+🍦 Ir por un helado
 </div>
 
 </div>
+
+<script>
+
+function usarVale(elemento,vale){
+
+if(elemento.classList.contains("usado")){
+return;
+}
+
+const confirmar = confirm("¿Quieres usar el vale de: " + vale + "?");
+
+if(confirmar){
+
+elemento.classList.add("usado");
+
+elemento.innerHTML = "✔ Vale usado<br>" + vale;
+
+alert("Vale utilizado 🎟️");
+
+}
+
+}
+
+</script>
 
 </body>
-
 </html>

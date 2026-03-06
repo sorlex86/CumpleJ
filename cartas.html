@@ -4,77 +4,75 @@
 <meta charset="UTF-8">
 <title>Cartas</title>
 
-
-
 <style>
 
 body{
-    margin:0;
-    font-family:Segoe UI,sans-serif;
-    background:linear-gradient(135deg,#aa88ec,#c2b2ff);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    height:100vh;
+margin:0;
+font-family:Segoe UI,sans-serif;
+background:linear-gradient(135deg,#aa88ec,#c2b2ff);
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+height:100vh;
 }
 
 h1{
-    color:white;
+color:white;
 }
 
 .cartas{
-    display:grid;
-    grid-template-columns:repeat(3,150px);
-    gap:20px;
-    margin-top:30px;
+display:grid;
+grid-template-columns:repeat(3,150px);
+gap:20px;
+margin-top:30px;
 }
 
 .carta{
-    width:150px;
-    height:200px;
-    background:white;
-    border-radius:15px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-    font-weight:bold;
-    transition:transform .2s;
+width:150px;
+height:200px;
+background:white;
+border-radius:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+font-weight:bold;
+transition:transform .2s;
 }
 
 .carta:hover{
-    transform:scale(1.05);
+transform:scale(1.05);
 }
 
 .modal{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.6);
-    display:none;
-    align-items:center;
-    justify-content:center;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:none;
+align-items:center;
+justify-content:center;
 }
 
 .modalContenido{
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    max-width:500px;
-    text-align:center;
+background:white;
+padding:30px;
+border-radius:15px;
+max-width:500px;
+text-align:center;
 }
 
 button{
-    margin-top:20px;
-    padding:10px 20px;
-    border:none;
-    border-radius:10px;
-    background:#aa88ec;
-    color:white;
-    cursor:pointer;
+margin-top:20px;
+padding:10px 20px;
+border:none;
+border-radius:10px;
+background:#aa88ec;
+color:white;
+cursor:pointer;
 }
 
 </style>
@@ -135,12 +133,11 @@ const textos = {
 
 4:"Ojalá este momento feliz dure mucho… y si no, que vuelvan muchos más.",
 
-5:"Cuando quieras solo échame una llamada y te las consigo antes de las 6 de la tarde.",
+5:"Cuando quieras solo échame una llamada y te las consigo antes de las 6 de la tarde."
 
 };
 
 document.getElementById("textoCarta").innerText = textos[numero];
-
 document.getElementById("modalCarta").style.display = "flex";
 
 }
@@ -155,4 +152,3 @@ document.getElementById("modalCarta").style.display = "none";
 
 </body>
 </html>
-
